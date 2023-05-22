@@ -1,0 +1,266 @@
+h3, h4, ul li
+{
+    color: #484848;
+    font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*Search Bar Div*/
+.filters
+{
+    color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    display: flex;
+}
+
+/*Seach bar button*/
+button
+{
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: 30px;
+    align-self: center;
+}
+
+button:hover
+{
+    opacity: 90%;
+}
+
+/*Search bar locations and amenities popover div*/
+.locations, .filters.amenities
+{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Search bar location right dar border*/
+.locations
+{
+    border-right: 1px solid #DDDDDD;
+}
+
+/*Search bar dropdown list of locations/amenities*/
+.popover 
+{
+    background-color: #FAFAFA;
+    padding: 0 0 0 20px;
+    margin-top: 17px;
+    list-style-type: none;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+  }
+
+.filters .amenities h3, .locations h3
+{
+    font-weight: 600;
+    margin: 0px;
+    margin-top: 17px;
+    padding: 0px;
+    padding-left: 30px;
+}
+
+.filters .amenities h4, .locations h4
+{
+    margin: 0px;
+    padding: 0px;
+    font-weight: 400;
+    font-size: 14px;
+    padding-left: 30px;
+}
+
+.filters .amenities h2, .locations h2
+{
+    font-size: 16px;
+}
+
+.filters .amenities li, .locations li
+{
+    list-style-type: none;
+}
+
+.locations .popover, .filters .amenities .popover
+{
+    visibility: hidden;
+    opacity: 10;
+}
+
+.locations:hover .popover
+{
+    visibility: visible;
+    opacity: 10;
+    z-index: 2;
+}
+
+/*Updated version of the above code here*/
+/*.amenities:hover .popover
+{
+    visibility: visible;
+    z-index: 2;
+}*/
+/*Old version of the above code here*/
+
+.filters .amenities:hover .popover
+{
+    visibility: visible;
+    z-index: 2;
+}
+
+
+.ul_amenities
+{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: initial; /*Over-rides the list default left padding*/
+}
+
+.ul_amenities .li_1
+{
+    background-image: url("/images/icon_tv.png");
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    line-height: 50px;
+}
+
+.ul_amenities .li_2
+{
+    background-image: url("/images/icon_wifi.png");
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    line-height: 50px;
+}
+
+.ul_amenities .li_3
+{
+    background-image: url("/images/icon_pets.png");
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    line-height: 50px;
+}
+
+/*Media query for different screen sizes*/
+@media screen and (min-width: 71px) and (max-width: 1041px)
+{
+    body
+    {
+        padding: 20px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+}
+
+
+@media screen and (min-width: 490px) and (max-width: 770px)
+{
+body
+{
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
+    
+button
+{
+    font-size: 16px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 15%;
+    border: none;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: 30px;
+    align-self: center;
+}
+
+button:hover
+{
+    opacity: 90%;
+}
+
+.top_articles
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+}
+
+@media screen and (min-width: 300px) and (max-width: 489px)
+{
+body
+{
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button
+{
+    font-size: 16px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: 5px;
+    align-self: center;
+}
+
+button:hover
+{
+    opacity: 90%;
+}
+
+.top_articles
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*For the 3 divs. 2 top and 1 below
+My Home, Tiny houses, A suite*/
+.top_articles .articles, .bottom_articles .articles
+{
+    width: 80%;
+}
+
+/*For the location and amenities in the search bar*/
+.filters .amenities h3, .locations h3
+{
+    font-weight: 600;
+    margin: 0px;
+    margin-top: 17px;
+    padding: 0px;
+    padding-left: 5px;
+}
+
+.filters .amenities h4, .locations h4
+{
+    margin: 0px;
+    padding: 0px;
+    font-weight: 400;
+    font-size: 14px;
+    padding-left: 5px;
+}
+/*Hiding dropdown on small screens*/
+/*
+.locations:hover .popover, .amenities:hover .popover
+{
+    visibility: hidden;
+}
+*/
+}
