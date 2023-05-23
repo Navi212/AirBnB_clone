@@ -1,15 +1,16 @@
 body
 {
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     color: #484848;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container
 {
     max-width: 1000px;
-    margin-top: 30px;
     margin: 30px auto;
+    margin-top: 30px;
 }

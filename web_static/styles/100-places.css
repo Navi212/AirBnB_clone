@@ -1,27 +1,27 @@
-div .amenities h2, .reviews h2
+ .c_places .amenities h2, .c_places .reviews h2
 {
     font-size: 16px;
     border-bottom: 1px solid #DDDDDD;
     text-align: left;
 }
 
-.reviews li
+.c_places .reviews li
 {
     list-style-type: none;
 }
 
-.reviews h3
+.c_places .reviews h3
 {
     margin: 0;
     font-size: 14px;
 }
 
-.reviews ul
+.c_places .reviews ul
 {
     padding: 0;
 }
 
-.reviews p
+.c_places .reviews p
 {
     font-size: 12px;
 }
