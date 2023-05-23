@@ -1,10 +1,10 @@
 h3, h4, ul li
 {
-    color: #222222;
+    color: #484848;
+    font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/*Search Bar Div*/
-.filters
+.c_filters
 {
     color: white;
     height: 70px;
@@ -14,7 +14,6 @@ h3, h4, ul li
     display: flex;
 }
 
-/*Seach bar button*/
 button
 {
     font-size: 18px;
@@ -34,8 +33,8 @@ button:hover
     opacity: 90%;
 }
 
-/*Search bar locations and amenities popover div*/
-.locations, .filters.amenities
+/*.c_filters .locations, .c_filters .amenities*/ /*Same*/
+.c_locations, .c_amenities
 {
     height: 100%;
     width: 25%;
@@ -43,23 +42,22 @@ button:hover
     flex-direction: column;
 }
 
-/*Search bar location right dar border*/
 .locations
 {
     border-right: 1px solid #DDDDDD;
 }
 
-/*Search bar dropdown list of locations/amenities*/
-.popover {
+.popover 
+{
+    background-color: #FAFAFA;
     padding: 0 0 0 20px;
     margin-top: 17px;
     list-style-type: none;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    /*background-color: grey;*/
   }
 
-.filters .amenities h3, .locations h3
+.c_locations h3, .c_amenities h3
 {
     font-weight: 600;
     margin: 0px;
@@ -68,7 +66,7 @@ button:hover
     padding-left: 30px;
 }
 
-.filters .amenities h4, .locations h4
+.c_locations h4, .c_amenities h4
 {
     margin: 0px;
     padding: 0px;
@@ -77,45 +75,67 @@ button:hover
     padding-left: 30px;
 }
 
-.filters .amenities h2, .locations h2
+.c_locations h2, .c_amenities h2
 {
     font-size: 16px;
 }
 
-.filters .amenities li, .locations li
+.c_locations li, .c_amenities li
 {
     list-style-type: none;
 }
 
-.locations .popover, .filters .amenities .popover
+.c_locations .popover, .c_amenities .popover
 {
     visibility: hidden;
     opacity: 10;
 }
 
-.locations:hover .popover
+.c_locations:hover .popover
 {
     visibility: visible;
     opacity: 10;
     z-index: 2;
 }
 
-/*Updated version of the above code here*/
-.amenities:hover .popover
+.c_amenities:hover .popover
 {
     visibility: visible;
     z-index: 2;
 }
-/*Old version of the above code here*/
-/*
-.filters .amenities:hover .popover
-{
-    visibility: visible;
-    z-index: 2;
-}
-*/
 
-/*Media query for different screen sizes*/
+.ul_amenities
+{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: initial; /*Over-rides the list default left padding*/
+}
+
+.ul_amenities .li_1
+{
+    background-image: url("/images/icon_tv.png");
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    line-height: 50px;
+}
+
+.ul_amenities .li_2
+{
+    background-image: url("/images/icon_wifi.png");
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    line-height: 50px;
+}
+
+.ul_amenities .li_3
+{
+    background-image: url("/images/icon_pets.png");
+    background-repeat: no-repeat;
+    text-indent: 50px;
+    line-height: 50px;
+}
+
 @media screen and (min-width: 71px) and (max-width: 1041px)
 {
     body
@@ -126,8 +146,8 @@ button:hover
     }
 }
 
-
-@media screen and (min-width: 490px) and (max-width: 770px)
+/*@media screen and (min-width: 490px) and (max-width: 770px)*/
+@media screen and (min-width: 490px) and (max-width: 918px)
 {
 body
 {
@@ -197,15 +217,14 @@ button:hover
     flex-direction: column;
     align-items: center;
 }
-/*For the 3 divs. 2 top and 1 below
-My Home, Tiny houses, A suite*/
+
 .top_articles .articles, .bottom_articles .articles
 {
     width: 80%;
 }
 
-/*For the location and amenities in the search bar*/
-.filters .amenities h3, .locations h3
+
+.c_locations h3, .c_amenities h3
 {
     font-weight: 600;
     margin: 0px;
@@ -214,7 +233,7 @@ My Home, Tiny houses, A suite*/
     padding-left: 5px;
 }
 
-.filters .amenities h4, .locations h4
+.c_locations h4, .c_amenities h4
 {
     margin: 0px;
     padding: 0px;
@@ -222,11 +241,4 @@ My Home, Tiny houses, A suite*/
     font-size: 14px;
     padding-left: 5px;
 }
-/*Hiding dropdown on small screens*/
-/*
-.locations:hover .popover, .amenities:hover .popover
-{
-    visibility: hidden;
-}
-*/
 }

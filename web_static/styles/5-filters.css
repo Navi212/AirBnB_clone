@@ -1,4 +1,4 @@
-.container .filters
+.c_filters
 {
     color: white;
     height: 70px;
@@ -38,7 +38,7 @@ button:hover
     border-right: 1px solid #DDDDDD;
 }
 
-h3
+.c_locations h3, .c_amenities h3
 {
     font-weight: 600;
     margin: 10px 0 0 0;
@@ -46,7 +46,7 @@ h3
     font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-h4
+.c_locations h4, .c_amenities h4
 {
     font-weight: 400;
     font-size: 14px;
