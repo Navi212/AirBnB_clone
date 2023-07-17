@@ -77,8 +77,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             try:
-                li = line[0], line[1]
-                obj_id = ".".join(li)
+                obj_id = line[0] + "." + line[1]
                 obj_dict = storage.all()
                 try:
                     print(obj_dict[obj_id])
