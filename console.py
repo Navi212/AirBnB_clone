@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """The `console` module supplies a class `HBNBCommand`
-that sub-classes the `Cmd` class which helps in the implemntation
+that sub-classes the `Cmd` class which helps in the implementation
 of a custom CLI (command line interpreter) for our AirBnb console
 project."""
 
@@ -17,6 +17,8 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
+    """Defines a class `HBNBCommand` that inherits
+    from `Cmd` class"""
     prompt = "(hbnb) "
     cls = {
         "BaseModel": BaseModel,
@@ -26,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
         "City": City,
         "Amenity": Amenity,
         "Review": Review
-        }
+    }
 
     def do_quit(self, line):
         """\nQuits the shell"""
@@ -65,7 +67,8 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self, line):
-        """\nPrints the string representation of an instance based on classname and id.
+        """\nPrints the string representation of an instance
+        based on classname and id.
         Usage: show <classname> <id>
         """
         line = line.split()
@@ -77,7 +80,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             try:
-                obj_id = line[0] + "." + line[1]
+                li = line[0], line[1]
+                obj_id = ".".join(li)
                 obj_dict = storage.all()
                 try:
                     print(obj_dict[obj_id])
@@ -110,9 +114,11 @@ class HBNBCommand(cmd.Cmd):
                 pass
 
     def do_all(self, line):
-        """\nPrints the string representation of all instances based or not classname.
+        """\nPrints the string representation of all instances
+        based or not classname.
         Usage: all <classname> or all
         """
+        storage.reload()
         line = line.split()
         obj_dict = storage.all()
         obj_li = []
@@ -152,17 +158,17 @@ class HBNBCommand(cmd.Cmd):
                         attr_val_cast = type(eval(line[3]))
                         attr_val = line[3].strip("'")
                         attr_val = line[3].strip('"')
-                        setattr(obj_dict[key], line[2], attr_val_cast(attr_val))
+                        setattr(obj_dict[key], line[2],
+                                attr_val_cast(attr_val))
                         obj_dict[key].save()
-                    #except AttributeError:
-                    #    print("** attibute name doesn't exist **")
                     except (KeyError, AttributeError):
                         pass
             else:
                 print("** class doesn't exist **")
 
     def default(self, line):
-        """Runs commands who's method are not explicitly defined in the class"""
+        """Runs commands who's method are not explicitly
+        defined in the class"""
         if "." in line:
             try:
                 s_line = line.replace(".", " ").split()
@@ -179,34 +185,40 @@ class HBNBCommand(cmd.Cmd):
                     print(count)
                 else:
                     if (s_line[0] in HBNBCommand.cls and (
-                    s_line[1].startswith('show("') and s_line[1].endswith('")'))):
-                        id = s_line[1].replace("(", " ").replace(")", "").replace('"', "").split()
-                        id = id[1]
-                        l = s_line[0] + " " + id
-                        self.do_show(l)
+                            s_line[1].startswith('show("') and
+                            s_line[1].endswith('")'))):
+                        i_d = s_line[1].replace("(", " ").replace(
+                            ")", "").replace('"', "").split()
+                        i_d = i_d[1]
+                        obj_id = s_line[0] + " " + i_d
+                        self.do_show(obj_id)
 
                     elif (s_line[0] in HBNBCommand.cls and (
-                    s_line[1].startswith('destroy("') and s_line[1].endswith('")'))):
-                        id = s_line[1].replace("(", " ").replace(")", "").replace('"', "").split()
-                        id = id[1]
-                        l = s_line[0] + " " + id
-                        self.do_destroy(l)
+                            s_line[1].startswith('destroy("') and
+                            s_line[1].endswith('")'))):
+                        i_d = s_line[1].replace("(", " ").replace(
+                            ")", "").replace('"', "").split()
+                        i_d = i_d[1]
+                        obj_id = s_line[0] + " " + i_d
+                        self.do_destroy(obj_id)
 
                     elif (s_l[0]) in HBNBCommand.cls and (
-                        s_l[1].startswith('update("') and s_l[1].endswith(')')):
-                            storage.reload()
-                            cls_name = s_l[0]
-                            s_l = s_l[1].replace("(", " ").replace(")", "").replace(
-                                '"', "").replace(",", "").split()
-                            args = cls_name + " " + s_l[1] + " " + s_l[2]+ " " + s_l[3]
-                            try:
-                                self.do_update(args)
-                                storage.save()
-                            except (AttributeError, NameError):
-                                obj_dict = storage.all()
-                                obj_id = cls_name + "." + s_l[1]
-                                setattr(obj_dict[obj_id], s_l[2], s_l[3])
-                                storage.save()
+                            s_l[1].startswith('update("') and
+                            s_l[1].endswith(')')):
+                        storage.reload()
+                        cls_name = s_l[0]
+                        s_l = s_l[1].replace("(", " ").replace(")", "")
+                        s_l = s_l.replace('"', "").replace(",", "").split()
+                        args = cls_name + " " + \
+                            s_l[1] + " " + s_l[2] + " " + s_l[3]
+                        try:
+                            self.do_update(args)
+                            storage.save()
+                        except (AttributeError, NameError):
+                            obj_dict = storage.all()
+                            obj_id = cls_name + "." + s_l[1]
+                            setattr(obj_dict[obj_id], s_l[2], s_l[3])
+                            storage.save()
                     else:
                         print("** unknown syntax **")
 
