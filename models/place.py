@@ -1,18 +1,13 @@
 #!/usr/bin/python3
-"""
-The `place` module supplies a class `Place`
-that inherits from `BaseModel` class.
-"""
+"""The `place` module supplies a class `Place`
+that inherits from `BaseModel`."""
 
 
 from models.base_model import BaseModel
-from models import place
 
 
 class Place(BaseModel):
-    """
-    Defines a `Place` class that inherits from `BaseModel`.
-    """
+    """Defines a class `Place` that inherits from `BaseModel`."""
     city_id = ""
     user_id = ""
     name = ""
