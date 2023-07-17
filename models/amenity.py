@@ -1,16 +1,13 @@
 #!/usr/bin/python3
 """
-The `amenity` module supplies a class `Amenity`
-that inherits from `BaseModel` class.
+The `amenity` mdule supplies an `Amenity` class
+that inherits from `BaseModel`.
 """
 
 
 from models.base_model import BaseModel
-from models import amenity
 
 
 class Amenity(BaseModel):
-    """
-    Defines an `Amenity` class that inherits from `BaseModel`.
-    """
+    """Defines `Amenity` class"""
     name = ""
