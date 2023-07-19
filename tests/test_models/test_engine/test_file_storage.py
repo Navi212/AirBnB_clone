@@ -25,6 +25,19 @@ class testFileStorage(unittest.TestCase):
         except FileNotFoundError:
             pass
 
+    def test_docstring(self):
+        """Tests docstring"""
+        self.assertIsNotNone(FileStorage.__doc__)
+
+    def test_documentation(self):
+        """Tests all `FileStorage` methods has
+        valid documentations"""
+        self.assertTrue(FileStorage.__doc__)
+        self.assertIsNotNone(FileStorage.all.__doc__)
+        self.assertIsNotNone(FileStorage.save.__doc__)
+        self.assertIsNotNone(FileStorage.new.__doc__)
+        self.assertIsNotNone(FileStorage.reload.__doc__)
+
     def test_all_return_type(self):
         """Tests the data type of the return value of the all method."""
         storage_all = self.storage.all()
