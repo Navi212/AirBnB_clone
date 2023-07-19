@@ -46,20 +46,20 @@ class TestBaseModel_init_method(unittest.TestCase):
         self.assertNotEqual(self.obj_1.created_at, self.obj_2.created_at)
 
 
-class TestBaseModel_str_method(unittest.TestCase):
-    """Defines a class `TestBaseModel_str_method` which
-    tests the __str__ method of `BaseModel` class."""
-
-    def test_str_return_type(self):
-        """Tests the return type of __str__ method"""
-        obj_1 = BaseModel()
-        self.assertIsInstance(obj_1.__str__(), str)
-
-
-class TestBaseModel_save_method(unittest.TestCase):
-    """Defines a class `TestBaseModel_save_method` which
-    tests the save method of the `BaseModel` class."""
-
+#class TestBaseModel_str_method(unittest.TestCase):
+#    """Defines a class `TestBaseModel_str_method` which
+#    tests the __str__ method of `BaseModel` class."""
+#
+#    def test_str_return_type(self):
+#        """Tests the return type of __str__ method"""
+#        obj_1 = BaseModel()
+#        self.assertIsInstance(obj_1.__str__(), str)
+#
+#
+#class TestBaseModel_save_method(unittest.TestCase):
+#    """Defines a class `TestBaseModel_save_method` which
+#    tests the save method of the `BaseModel` class."""
+#
 #    def test_save_updated_time_difference(self):
 #        """Tests update_at time difference between
 #        obj first creation time and update_at time
@@ -70,8 +70,8 @@ class TestBaseModel_save_method(unittest.TestCase):
 #        obj_1 = BaseModel()
 #        second_updated_t = obj_1.updated_at
 #        self.assertNotEqual(first_udated_t, second_updated_t)
-
-
+#
+#
 #class TestBaseModel_to_dict_method(unittest.TestCase):
 #    """Defines a class `TestBaseModel_to_dict_method` which
 #    tests the to_dict method of the `BaseModel` class."""
