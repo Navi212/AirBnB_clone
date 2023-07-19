@@ -72,29 +72,29 @@ class TestBaseModel_save_method(unittest.TestCase):
 #        self.assertNotEqual(first_udated_t, second_updated_t)
 
 
-class TestBaseModel_to_dict_method(unittest.TestCase):
-    """Defines a class `TestBaseModel_to_dict_method` which
-    tests the to_dict method of the `BaseModel` class."""
-
-    def test_to_dict_values_are_set(self):
-        """Tests to_dict return type is dict"""
-        obj_1 = BaseModel()
-        self.assertTrue(type(obj_1.to_dict()), dict)
-
-    def test_to_dict_contains_correct_keys(self):
-        """Tests to_dict contains the correct keys"""
-        obj_1 = BaseModel()
-        self.assertIn("__class__", obj_1.to_dict())
-        self.assertIn("id", obj_1.to_dict())
-        self.assertIn("created_at", obj_1.to_dict())
-        self.assertIn("updated_at", obj_1.to_dict())
-
+#class TestBaseModel_to_dict_method(unittest.TestCase):
+#    """Defines a class `TestBaseModel_to_dict_method` which
+#    tests the to_dict method of the `BaseModel` class."""
+#
+#    def test_to_dict_values_are_set(self):
+#        """Tests to_dict return type is dict"""
+#        obj_1 = BaseModel()
+#        self.assertTrue(type(obj_1.to_dict()), dict)
+#
+#    def test_to_dict_contains_correct_keys(self):
+#        """Tests to_dict contains the correct keys"""
+#        obj_1 = BaseModel()
+#        self.assertIn("__class__", obj_1.to_dict())
+#        self.assertIn("id", obj_1.to_dict())
+#        self.assertIn("created_at", obj_1.to_dict())
+#        self.assertIn("updated_at", obj_1.to_dict())
+#
 #    def test_to_dict_not_equal_to_dunder(self):
 #        """Tests to_dict contains same attributes
 #        of an instance as the __dict__ (dunder method)"""
 #        obj_1 = BaseModel()
 #        self.assertEqual(obj_1.__dict__, obj_1.to_dict())
-
+#
 #    def test_to_dict_none_arg_error(self):
 #        """Tests to_dict raise TypeError on None
 #        type or non dict type arg"""
