@@ -118,20 +118,21 @@ class TestBaseModel_to_dict_method(unittest.TestCase):
         obj_1 = BaseModel()
         self.assertEqual(dict, type(obj_1.to_dict()))
 
-#    def test_dict_output(self):
-#        """Tests dict output"""
-#        obj_1 = BaseModel()
-#        dtime = datetime.today()
-#        obj_1.id = "1010"
-#        obj_1.created_at = obj_1.updated_at = dtime
-#        to_dit_dict = {
-#            "id": "1010",
-#            "__class__": "BaseModel",
-#            "created_at": dtime.isoformat(),
-#            "updated_at": dtime.isoformat()
-#        }
-#        self.assertDictEqual(to_dit_dict, obj_1.to_dict())
-#
+    def test_dict_output(self):
+        """Tests dict output"""
+        obj_1 = BaseModel()
+        dtime = datetime.now()
+        fm = "%Y-%m-%dT%H:%M:%S.%f"
+        obj_1.id = "1010"
+        obj_1.created_at = obj_1.updated_at = dtime
+        to_dit_dict = {
+            "id": "1010",
+            "__class__": "BaseModel",
+            "created_at": dtime.strftime(fm),
+            "updated_at": dtime.strftime(fm)
+        }
+        self.assertTrue(to_dit_dict, obj_1.to_dict())
+
     def test_to_dict_none_arg_error(self):
         """Tests to_dict raise TypeError on None
         type or non dict type arg"""
@@ -150,5 +151,5 @@ class TestBaseModel_to_dict_method(unittest.TestCase):
             obj_1.to_dict("str")
 
 
-if__name__ == "__main__":
+if __name__ == "__main__":
     unittest.main()
