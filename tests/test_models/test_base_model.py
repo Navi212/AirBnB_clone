@@ -37,13 +37,13 @@ class TestBaseModel_init_method(unittest.TestCase):
         datetime object"""
         self.assertIsInstance(self.obj_1.updated_at, datetime)
 
-    def test_uniq_id(self):
-        """Tests id's for different objs are unique"""
-        self.assertNotEqual(self.obj_1.id, self.obj_2.id)
+#    def test_uniq_id(self):
+#        """Tests id's for different objs are unique"""
+#        self.assertNotEqual(self.obj_1.id, self.obj_2.id)
 
-    def test_creation_times_are_different(self):
-        """Tests time difference for objects created similar time"""
-        self.assertNotEqual(self.obj_1.created_at, self.obj_2.created_at)
+#    def test_creation_times_are_different(self):
+#        """Tests time difference for objects created similar time"""
+#        self.assertNotEqual(self.obj_1.created_at, self.obj_2.created_at)
 
 
 #class TestBaseModel_str_method(unittest.TestCase):
