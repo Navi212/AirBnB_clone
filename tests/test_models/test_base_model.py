@@ -19,6 +19,10 @@ class TestBaseModel_init_method(unittest.TestCase):
         self.obj_1 = BaseModel()
         self.obj_2 = BaseModel()
 
+    def tearDown(self):
+        """Does nothing for the time being"""
+        pass
+
     def test_init_id_str_type(self):
         """Tests type(id) is str"""
         self.assertTrue(type(self.obj_1.id), str)
