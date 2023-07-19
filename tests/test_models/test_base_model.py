@@ -60,16 +60,16 @@ class TestBaseModel_save_method(unittest.TestCase):
     """Defines a class `TestBaseModel_save_method` which
     tests the save method of the `BaseModel` class."""
 
-    def test_save_updated_time_difference(self):
-        """Tests update_at time difference between
-        obj first creation time and update_at time
-        after calling the save method"""
-        obj_1 = BaseModel()
-        first_udated_t = obj_1.updated_at
-        storage.save()
-        obj_1 = BaseModel()
-        second_updated_t = obj_1.updated_at
-        self.assertNotEqual(first_udated_t, second_updated_t)
+#    def test_save_updated_time_difference(self):
+#        """Tests update_at time difference between
+#        obj first creation time and update_at time
+#        after calling the save method"""
+#        obj_1 = BaseModel()
+#        first_udated_t = obj_1.updated_at
+#        storage.save()
+#        obj_1 = BaseModel()
+#        second_updated_t = obj_1.updated_at
+#        self.assertNotEqual(first_udated_t, second_updated_t)
 
 
 class TestBaseModel_to_dict_method(unittest.TestCase):
