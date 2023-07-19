@@ -1,42 +1,81 @@
 #!/usr/bin/python3
-"""The `test_file_storage` module supplies a class `TestFileStorage
-that inherits from `unittest` and implements tests for all class
-attributes and methods."""
+"""Testing the file_storage module."""
 
 
+import os
+import json
 import unittest
+from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 
-class TestFileStorage(unittest.TestCase):
-    """Defines a class `TestFileStorage` that implements
-    tests for class attributes and methods"""
+class testFileStorage(unittest.TestCase):
+    """Testing the FileStorage class"""
 
-    def test_doc_string(self):
-        """Tests docstring"""
-        self.assertIsNotNone(FileStorage.__doc__)
+    def setUp(self):
+        """Initializing classes"""
+        self.storage = FileStorage()
+        self.my_model = BaseModel()
 
-    def test_method_documentations(self):
-        """Tests all methods of `FileStorage`
-        has valid documentations"""
-        self.assertIsNotNone(FileStorage.__doc__)
-        self.assertIsNotNone(FileStorage.all.__doc__)
-        self.assertIsNotNone(FileStorage.new.__doc__)
-        self.assertIsNotNone(FileStorage.save.__doc__)
-        self.assertIsNotNone(FileStorage.reload.__doc__)
+    def tearDown(self):
+        """Cleaning up."""
 
-    def test_file_storage_working(self):
-        """Tests `FileStorage` working properly"""
-        obj = FileStorage()
-        self.assertTrue(obj)
-        self.assertIsNotNone(obj)
-        self.assertTrue(type(obj), dict)
+        try:
+            os.remove("file.json")
+        except FileNotFoundError:
+            pass
 
-    def test_all_returns_dict(self):
-        """Tests all returns a dict"""
-        storage = FileStorage()
-        obj = storage.all()
-        self.assertTrue(type(obj), dict)
+    def test_all_return_type(self):
+        """Tests the data type of the return value of the all method."""
+        storage_all = self.storage.all()
+        self.assertIsInstance(storage_all, dict)
+
+    def test_new_method(self):
+        """Tests that the new method sets the right key and value pair
+        in the FileStorage.__object attribute"""
+        self.storage.new(self.my_model)
+        key = str(self.my_model.__class__.__name__ + "." + self.my_model.id)
+        self.assertTrue(key in self.storage._FileStorage__objects)
+
+    def test_objects_value_type(self):
+        """Tests that the type of value contained in the FileStorage.__object
+        is of type obj.__class__.__name__"""
+        self.storage.new(self.my_model)
+        key = str(self.my_model.__class__.__name__ + "." + self.my_model.id)
+        val = self.storage._FileStorage__objects[key]
+        self.assertIsInstance(self.my_model, type(val))
+
+    def test_save_file_exists(self):
+        """Tests that a file gets created with the name file.json"""
+        self.storage.save()
+        self.assertTrue(os.path.isfile("file.json"))
+
+    def test_save_file_read(self):
+        """Testing the contents of the files inside the file.json"""
+        self.storage.save()
+        self.storage.new(self.my_model)
+        with open("file.json", encoding="UTF8") as fd:
+            content = json.load(fd)
+
+        self.assertTrue(type(content) is dict)
+
+    def test_the_type_file_content(self):
+        """Testing the type of the contents inside the file."""
+        self.storage.save()
+        self.storage.new(self.my_model)
+        with open("file.json", encoding="UTF8") as fd:
+            content = fd.read()
+
+        self.assertIsInstance(content, str)
+
+    def test_reaload_without_file(self):
+        """Tests that nothing happens when file.json does not exists
+        and reload is called"""
+        try:
+            self.storage.reload()
+            self.assertTrue(True)
+        except FileNotFoundError:
+            self.assertTrue(False)
 
 
 if __name__ == "__main__":
