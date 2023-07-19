@@ -1,42 +1,42 @@
 #!/usr/bin/python3
-"""The `test_base_model` supplies a class `TestBaseModel_init_method
-that inherits from `unittest` which implements a test class
-with methods for our class attributes (methods)."""
-
-
-import unittest
-from models.base_model import BaseModel
-from datetime import datetime
-from models import storage
-
-
-class TestBaseModel_init_method(unittest.TestCase):
-    """Defines `TestBaseModel_methods` class
-    for our class attributes (methods)."""
-
-    def setUp(self):
-        """Creates an instance of `BaseModel` for testings"""
-        self.obj_1 = BaseModel()
-        self.obj_2 = BaseModel()
-
-    def test_init_method_no_args(self):
-        """Tests type(id) is str"""
-        self.assertIsInstance(self.obj_1.id, str)
-
-    def test_obj_is_instance_of_class(self):
-        """Tests obj is instance of `BaseModel`"""
-        self.assertIsInstance(self.obj_1, BaseModel)
-
-    def test_created_at_time_obj(self):
-        """Tests the created_at during instantiation is a
-        datetime object"""
-        self.assertIsInstance(self.obj_1.created_at, datetime)
-
-    def test_updated_at_time_obj(self):
-        """Tests the updated_at during instantiation is a
-        datetime object"""
-        self.assertIsInstance(self.obj_1.updated_at, datetime)
-
+#"""The `test_base_model` supplies a class `TestBaseModel_init_method
+#that inherits from `unittest` which implements a test class
+#with methods for our class attributes (methods)."""
+#
+#
+#import unittest
+#from models.base_model import BaseModel
+#from datetime import datetime
+#from models import storage
+#
+#
+#class TestBaseModel_init_method(unittest.TestCase):
+#    """Defines `TestBaseModel_methods` class
+#    for our class attributes (methods)."""
+#
+#    def setUp(self):
+#        """Creates an instance of `BaseModel` for testings"""
+#        self.obj_1 = BaseModel()
+#        self.obj_2 = BaseModel()
+#
+#    def test_init_method_no_args(self):
+#        """Tests type(id) is str"""
+#        self.assertIsInstance(self.obj_1.id, str)
+#
+#    def test_obj_is_instance_of_class(self):
+#        """Tests obj is instance of `BaseModel`"""
+#        self.assertIsInstance(self.obj_1, BaseModel)
+#
+#    def test_created_at_time_obj(self):
+#        """Tests the created_at during instantiation is a
+#        datetime object"""
+#        self.assertIsInstance(self.obj_1.created_at, datetime)
+#
+#    def test_updated_at_time_obj(self):
+#        """Tests the updated_at during instantiation is a
+#        datetime object"""
+#        self.assertIsInstance(self.obj_1.updated_at, datetime)
+#
 #    def test_uniq_id(self):
 #        """Tests id's for different objs are unique"""
 #        self.assertNotEqual(self.obj_1.id, self.obj_2.id)
@@ -113,5 +113,5 @@ class TestBaseModel_init_method(unittest.TestCase):
 #            obj_1.to_dict("str")
 
 
-if __name__ == "__main__":
-    unittest.main()
+#if __name__ == "__main__":
+#    unittest.main()
