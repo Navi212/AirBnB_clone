@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 The `user` module supplies a class `TestUser` which
-iherits from unittest and implements tests for class
+inherits from unittest and implements tests for class
 attributes and methods.
 """
 
