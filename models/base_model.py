@@ -46,5 +46,4 @@ class BaseModel:
         obj_dict["__class__"] = self.__class__.__name__
         obj_dict["created_at"] = datetime.now().strftime(fm)
         obj_dict["updated_at"] = datetime.now().strftime(fm)
-        
         return (obj_dict)
