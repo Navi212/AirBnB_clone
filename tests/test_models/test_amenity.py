@@ -117,7 +117,7 @@ class TestAmenity(unittest.TestCase):
         of the obj
         """
         with open("file.json", "w") as file:
-            file.write('{"amenity_name": "free_wify"}')
+            file.write('{"amenity_name": "free_wifi"}')
 
         with open("file.json", "r") as file:
             for line in file:
