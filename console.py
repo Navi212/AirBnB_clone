@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
-        """\nCreates a new instance of `BaseModel` saves it to JSON file.
+        """\nCreates a new instance of `BaseModel`.
         Usage: create <classname>
         """
         line = line.split()
